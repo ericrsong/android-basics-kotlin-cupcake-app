@@ -11,7 +11,7 @@ import java.util.*
 private const val PRICE_PER_CUPCAKE = 2.00
 private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
-class OrderViewModel: ViewModel() {
+class OrderViewModel : ViewModel() {
     private val _quantity = MutableLiveData<Int>()
     val quantity: LiveData<Int> = _quantity
 
@@ -73,7 +73,7 @@ class OrderViewModel: ViewModel() {
     }
 
     private fun updatePrice() {
-        var caculatedPrice = (quantity.value?:0 ) * PRICE_PER_CUPCAKE
+        var caculatedPrice = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
         if (dateOptions[0] == _date.value) {
             caculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
         }
